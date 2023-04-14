@@ -1,8 +1,13 @@
 async function checkForPlugin(url) {
   try {
     const response = await fetch(url);
-    if (response.ok) {
-      return true;
+
+    // check if the response is valid JSON and has a key `schema_version`
+    if (response.headers.get("content-type").includes("application/json")) {
+      const json = await response.json();
+      if (json.name_for_model) {
+        return true;
+      }
     }
   } catch (error) {
     console.error("Error fetching ChatGPT plugin:", error);
@@ -35,6 +40,8 @@ async function displayLogoIfPluginExists() {
     link.appendChild(logo);
 
     document.body.appendChild(link);
+
+    console.log(`✨ ChatGPT plugin detected at: ${pluginUrl} ✨`);
   }
 }
 
