@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "ChatGPT Plugin Detector",
   "description": "Try to detect if the current site hosts a ChatGPT plugin and show the OpenAI logo if it is",
-  "version": "1.1",
+  "version": "1.2",
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
