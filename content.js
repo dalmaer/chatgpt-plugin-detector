@@ -42,6 +42,11 @@ async function displayLogoIfPluginExists() {
     document.body.appendChild(link);
 
     console.log(`✨ ChatGPT plugin detected at: ${pluginUrl} ✨`);
+
+    // store the origins that have a plugin
+    chrome.storage.local.set({
+      [url.origin]: true,
+    });
   }
 }
 
